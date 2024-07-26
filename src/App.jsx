@@ -1,37 +1,40 @@
-import { useState } from 'react';
+import React from 'react';
 
-import reactLogo from './assets/react.svg';
-import viteLogo from './assets/vite.svg';
+import { Layout } from 'antd';
+
+import BookCrud from './components/BookCrud';
 
 import './App.css';
 
-const App = () => {
-    const [count, setCount] = useState(0);
+const { Header, Content, Footer } = Layout;
 
-    return (
-        <>
-            <div>
-                <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-                    <img src={viteLogo} className="logo" alt="Vite logo" />
-                </a>
-                <a href="https://react.dev" target="_blank" rel="noreferrer">
-                    <img src={reactLogo} className="logo react" alt="React logo" />
-                </a>
+const App = () => (
+    <Layout>
+        <Header style={{ display: 'flex' }}>
+            <div style={{ color: 'white' }}>
+                React CRUD
             </div>
-            <h1>Vite + React</h1>
-            <div className="card">
-                <button type="button" onClick={() => setCount((c) => c + 1)}>
-                    count is {count}
-                </button>
-                <p>
-                    Edit <code>src/App.jsx</code> and save to test HMR
-                </p>
+        </Header>
+        <Content
+            style={{
+                padding: '0 50px',
+            }}
+        >
+            <div
+                className="site-layout-content"
+                style={{
+                    marginTop: '24px',
+                    padding: '24px',
+                    background: '#fff',
+                }}
+            >
+                <BookCrud />
             </div>
-            <p className="read-the-docs">
-                Click on the Vite and React logos to learn more
-            </p>
-        </>
-    );
-};
+        </Content>
+        <Footer style={{ textAlign: 'center' }}>
+            React CRUD ©2024 Mark Ma
+        </Footer>
+    </Layout>
+);
 
 export default App;
